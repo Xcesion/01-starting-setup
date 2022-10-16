@@ -1,0 +1,17 @@
+
+.app-wording_header{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 2em; /*25px = 1.5em*/
+} 
+.app-wording_para{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    font-size: 22px;
+
+}  
