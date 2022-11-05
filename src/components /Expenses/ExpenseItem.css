@@ -8,3 +8,11 @@
     border-radius: 12px;  commented out these two css styles 
     is because created a new custom component in the comp.css file */
   }
+  .no_expense{ 
+    color: white;
+    width: min(100%-2rem, 600px);
+    margin-inline:auto;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+  }

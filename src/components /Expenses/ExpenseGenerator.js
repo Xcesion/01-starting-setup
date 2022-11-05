@@ -1,29 +1,28 @@
-import React, {useState} from 'react';
-import ExpenseDate from './ExpenseDate.js';
+import React from "react";
+import ExpenseDate from "./ExpenseDate.js";
 import Comp from "../UI/Comp";
 import "./ExpenseGenerator.css";
 
-
-function ExpenseGenerator(props) {
-  const [title, setTitle] = useState(props.title);
-  
-  const clickHandler = ()=>{
-    setTitle('Updated!');
-    console.log(title);
-};
+const ExpenseGenerator = (props)=> {
+  // const [title, setTitle] = useState(props.title);//must called inside the components function and can not called inside the nested fucntion.//
+  console.log("ExpenseGenerator is evaluated by React");
+  // const clickHandler = ()=>{
+  //   setTitle('Updated!');
+  //   console.log(title);
+  // };
   return (
-    <Comp className ='expense-item'>
-        <ExpenseDate date= {props.date}/>
+    <li>
+      <Comp className="expense-item">
+        <ExpenseDate date={props.date} />
         <div className="expense-item__description">
-            <h2> {title}</h2>  {/*the same attribute with app.js's name on line 31*/}
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      <button onClick ={clickHandler}>Change Title</button>
-    </Comp>
+          <h2> {props.title}</h2>
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+      </Comp>
+    </li>
   );
-}
+};
 
 export default ExpenseGenerator;
-
 
 //app.js -> exitem -> exgen-> exDate

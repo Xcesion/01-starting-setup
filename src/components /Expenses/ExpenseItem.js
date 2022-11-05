@@ -1,51 +1,34 @@
+import React, { useState } from 'react';
 
-import ExpenseGenerator from './ExpenseGenerator';
+import './ExpenseItem.css';
 import Comp from '../UI/Comp';
-import "./ExpenseItem.css";
+import ExpenseChart from './ExpenseChart';
+import ExpenseFilter from './ExpenseFilter';
+import ExpensesList from './ExpensesList';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
+  const [filterYear, setFilterYear] = useState('2021');
+
+  const ExpenseFilterHandler = (selectedYear) => {
+    setFilterYear(selectedYear);
+  };
+
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filterYear;
+  });
+
   return (
-    <Comp className = 'expenses_item'>
-      <ExpenseGenerator
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
-      />
-      <ExpenseGenerator
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-        date={props.items[1].date}
-      />
-      <ExpenseGenerator
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-        date={props.items[2].date}
-      />
-      <ExpenseGenerator
-        title={props.items[3].title}
-        amount={props.items[3].amount}
-        date={props.items[3].date}
-      />
-    </Comp>
+    <div>
+      <Comp className='expenses_item'>
+        <ExpenseFilter
+          selected={filterYear}
+          onExpenseFilter={ExpenseFilterHandler}
+        />
+        <ExpenseChart expenses = {filteredExpenses}/>
+        <ExpensesList items ={filteredExpenses}/>
+      </Comp>
+    </div>
   );
-}
+};
 
 export default ExpenseItem;
-
-/*
-<ExpenseGenerator
-    title={expenses[0].title}
-    amount ={expenses[0].amount}
-    date ={expenses[0].date}
-    />
-<ExpenseGenerator
-    title={expenses[1].title}
-    amount ={expenses[1].amount}
-    date ={expenses[1].date}
-    />
-<ExpenseGenerator
-    title={expenses[2].title}
-    amount ={expenses[2].amount}
-    date ={expenses[2].date}
-    />
-*/
