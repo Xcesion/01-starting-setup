@@ -34,5 +34,5 @@
   
   .new-expense button.alternative:hover,
   .new-expense button.alternative:active {
-    background-color: #6699ff;
+    background-color: rgb(132, 175, 245);
   }
