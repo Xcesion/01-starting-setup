@@ -30,6 +30,8 @@ const  INITIAL_EXPENSE = [
   },
 ];
 
+
+
 const App = () => {
   const [expenses, setExpenses] = useState(INITIAL_EXPENSE);
 
@@ -38,6 +40,7 @@ const App = () => {
       return [expense, ...preExpenses];
     });
   };
+  
   return (
     <div>
       <h2 className="app-wording_header">Expense Tracker!</h2>
@@ -46,6 +49,7 @@ const App = () => {
       <ExpenseItem items={expenses} /> {/* parents components can only pass down to the child components and the curve brackets */}
       <OldExpenseCSV/>
     </div>
+    
   );
 }
 
